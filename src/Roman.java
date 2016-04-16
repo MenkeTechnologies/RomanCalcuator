@@ -13,7 +13,7 @@ public class Roman {
     static String formatSum;
     static boolean invalid = false;
 
-    public String convert_Int_To_Roman(int result) {
+    static String convert_Int_To_Roman(int result) {
 
         String convertedRoman = "";
 

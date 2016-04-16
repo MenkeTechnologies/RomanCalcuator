@@ -43,21 +43,21 @@ public class RomanCalculator extends JFrame implements ActionListener {
     boolean firstTextFieldSelected = true;
     boolean secondTextFieldSelected = false;
 
-    public RomanCalculator(){
+    public RomanCalculator() {
         super("Roman Calculator"); //title of window
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500,500);
+        setSize(500, 500);
 
         JPanel biggerPanel = new JPanel();
-        biggerPanel.setLayout(new GridLayout(2,1)); // 2 rows 1 column
+        biggerPanel.setLayout(new GridLayout(2, 1)); // 2 rows 1 column
         add(biggerPanel, BorderLayout.CENTER);
 
         /**
          * add text boxes and labels to top panel
          */
         inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(3,2)); //3 rows 2 columns
+        inputPanel.setLayout(new GridLayout(3, 2)); //3 rows 2 columns
         biggerPanel.add(inputPanel);
 
         roman1 = new JTextField("Roman1");
@@ -71,8 +71,6 @@ public class RomanCalculator extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-
-
 
 
             }
@@ -105,7 +103,7 @@ public class RomanCalculator extends JFrame implements ActionListener {
         inputPanel.add(result);
 
         buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(4,4)); // 4 row 4 columns
+        buttonPanel.setLayout(new GridLayout(4, 4)); // 4 row 4 columns
         biggerPanel.add(buttonPanel);
 
         /**
@@ -140,7 +138,7 @@ public class RomanCalculator extends JFrame implements ActionListener {
         subtract = new JButton("-");
         subtract.addActionListener(this);
         buttonPanel.add(subtract);
-        addition =  new JButton("+");
+        addition = new JButton("+");
         addition.addActionListener(this);
         buttonPanel.add(addition);
         divide = new JButton("/");
@@ -163,39 +161,36 @@ public class RomanCalculator extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String buttonString = e.getActionCommand();
 
-if (firstTextFieldSelected == true) {
-    if (buttonString.equals("I")) {
-        inputFirstTextField += "I";
-        roman1.setText(inputFirstTextField);
-    }
-    if (buttonString.equals("V")) {
-        inputFirstTextField += "V";
-        roman1.setText(inputFirstTextField);
-    }
-    if (buttonString.equals("X")) {
-        inputFirstTextField += "X";
-        roman1.setText(inputFirstTextField);
-    }
-    if (buttonString.equals("L")) {
-        inputFirstTextField += "L";
-        roman1.setText(inputFirstTextField);
-    }
-    if (buttonString.equals("C")) {
-        inputFirstTextField += "C";
-        roman1.setText(inputFirstTextField);
-    }
-    if (buttonString.equals("D")) {
-        inputFirstTextField += "D";
-        roman1.setText(inputFirstTextField);
-    }
-    if (buttonString.equals("M")) {
-        inputFirstTextField += "M";
-        roman1.setText(inputFirstTextField);
-    }
-}
-
-
-        else if (secondTextFieldSelected){
+        if (firstTextFieldSelected == true) {
+            if (buttonString.equals("I")) {
+                inputFirstTextField += "I";
+                roman1.setText(inputFirstTextField);
+            }
+            if (buttonString.equals("V")) {
+                inputFirstTextField += "V";
+                roman1.setText(inputFirstTextField);
+            }
+            if (buttonString.equals("X")) {
+                inputFirstTextField += "X";
+                roman1.setText(inputFirstTextField);
+            }
+            if (buttonString.equals("L")) {
+                inputFirstTextField += "L";
+                roman1.setText(inputFirstTextField);
+            }
+            if (buttonString.equals("C")) {
+                inputFirstTextField += "C";
+                roman1.setText(inputFirstTextField);
+            }
+            if (buttonString.equals("D")) {
+                inputFirstTextField += "D";
+                roman1.setText(inputFirstTextField);
+            }
+            if (buttonString.equals("M")) {
+                inputFirstTextField += "M";
+                roman1.setText(inputFirstTextField);
+            }
+        } else if (secondTextFieldSelected) {
             if (buttonString.equals("I")) {
                 inputSecondTextField += "I";
                 roman2.setText(inputSecondTextField);
@@ -235,7 +230,7 @@ if (firstTextFieldSelected == true) {
             oper = '+';
         }
         if (buttonString.equals("/")) {
-            oper ='/';
+            oper = '/';
         }
 
         if (buttonString.equals("%")) {
@@ -254,31 +249,31 @@ if (firstTextFieldSelected == true) {
             inputSecondTextField = "";
         }
 
-        if (buttonString.equals("=")){
+        if (buttonString.equals("=")) {
             int firstInt = Roman.convert_Roman_To_Int(inputFirstTextField);
             int secondInt = Roman.convert_Roman_To_Int(inputSecondTextField);
+            int calculatedInt;
 
 
             roman1Int.setText("" + firstInt);
             roman2Int.setText("" + secondInt);
-            result.setText("" + Roman.calc_Romans(firstInt,secondInt,oper));
+            calculatedInt = Roman.calc_Romans(firstInt, secondInt, oper);
+            result.setText("" + calculatedInt);
+            romanResult.setText(Roman.convert_Int_To_Roman(calculatedInt));
+
 
         }
 
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         RomanCalculator gui = new RomanCalculator();
-        gui.setSize(200,200);
+        gui.setSize(200, 200);
         gui.setVisible(true);
 
 
     }
-
-
-
-
 
 
 }
