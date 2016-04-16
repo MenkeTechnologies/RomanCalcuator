@@ -42,12 +42,13 @@ public class RomanCalculator extends JFrame implements ActionListener {
     char oper;
     boolean firstTextFieldSelected = true;
     boolean secondTextFieldSelected = false;
+    Roman newRoman = new Roman();
 
     public RomanCalculator() {
         super("Roman Calculator"); //title of window
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 500);
+        setSize(800, 800);
 
         JPanel biggerPanel = new JPanel();
         biggerPanel.setLayout(new GridLayout(2, 1)); // 2 rows 1 column
@@ -257,15 +258,24 @@ public class RomanCalculator extends JFrame implements ActionListener {
             inputFirstTextField = roman1.getText();
             inputSecondTextField = roman2.getText();
 
-            int firstInt = Roman.convert_Roman_To_Int(inputFirstTextField);
-            int secondInt = Roman.convert_Roman_To_Int(inputSecondTextField);
+            int firstInt = newRoman.getRoman(inputFirstTextField);
+            int secondInt = newRoman.getRoman(inputSecondTextField);
             int calculatedInt;
 
             roman1Int.setText("" + firstInt);
             roman2Int.setText("" + secondInt);
-            calculatedInt = Roman.calc_Romans(firstInt, secondInt, oper);
-            result.setText("" + calculatedInt);
-            romanResult.setText(Roman.convert_Int_To_Roman(calculatedInt));
+            calculatedInt = newRoman.calc_Romans(firstInt, secondInt, oper);
+
+            if (calculatedInt < 0){
+                JOptionPane.showMessageDialog(null,"Negative results not allowed");
+
+            }
+
+            else {
+                result.setText("" + calculatedInt);
+
+                newRoman.displayRoman(romanResult, newRoman.setRoman(calculatedInt));
+            }
         }
 
     }
@@ -273,7 +283,8 @@ public class RomanCalculator extends JFrame implements ActionListener {
     public static void main(String[] args) {
 
         RomanCalculator gui = new RomanCalculator();
-        gui.setSize(200, 200);
+        Roman newRoman = new Roman();
+        gui.setSize(400, 400);
         gui.setVisible(true);
 
 

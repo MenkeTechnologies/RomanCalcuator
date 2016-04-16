@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -13,7 +14,32 @@ public class Roman {
     static String formatSum;
     static boolean invalid = false;
 
-    static String convert_Int_To_Roman(int result) {
+    public Roman (){
+
+
+    }
+
+    public Integer getRoman (String romanNumeral){
+
+        return convert_Roman_To_Int(romanNumeral);
+    }
+
+    public String setRoman (Integer result){
+
+        String romanOutput = convert_Int_To_Roman(result);
+
+        return romanOutput;
+
+
+    }
+
+    public void displayRoman (JTextField field, String Roman){
+
+        field.setText(Roman);
+
+    }
+
+    public String convert_Int_To_Roman(int result) {
 
         String convertedRoman = "";
 
@@ -62,7 +88,7 @@ public class Roman {
     }
 
 
-    static Integer convert_Roman_To_Int(String operand) {
+    public Integer convert_Roman_To_Int(String operand) {
         int sum = 0;
 
         for (int i = 0; i < operand.length(); i++) {
@@ -99,7 +125,10 @@ public class Roman {
                     break;
                 }
                 default: {
-                    System.out.println("Error Invalid Numeral: " + operand);
+
+                    JOptionPane.showMessageDialog(null,"Error Invalid Numeral: " + operand);
+
+//                    System.out.println("Error Invalid Numeral: " + operand);
                     invalid = true;
                     break;
                 }
@@ -112,7 +141,7 @@ public class Roman {
 
     }
 
-    static Integer calc_Romans(int operand1, int operand2, char oper) {
+    public Integer calc_Romans(int operand1, int operand2, char oper) {
         int result = 0;
         switch (oper) {
 
@@ -139,7 +168,7 @@ public class Roman {
             }
 
             default:{
-                System.out.println("Error Invalid operator: " + oper);
+                JOptionPane.showMessageDialog(null,"Error Invalid operator: " + oper);
                 invalid = true;
                 break;
             }
