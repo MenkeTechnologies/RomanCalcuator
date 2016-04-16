@@ -135,6 +135,7 @@ public class Roman {
 
             case '%':{
                 result = operand1 % operand2;
+                break;
             }
 
             default:{
