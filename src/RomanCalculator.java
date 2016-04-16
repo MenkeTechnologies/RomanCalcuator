@@ -161,7 +161,7 @@ public class RomanCalculator extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String buttonString = e.getActionCommand();
 
-        if (firstTextFieldSelected == true) {
+        if (firstTextFieldSelected) {
             if (buttonString.equals("I")) {
                 inputFirstTextField += "I";
                 roman1.setText(inputFirstTextField);
@@ -245,23 +245,27 @@ public class RomanCalculator extends JFrame implements ActionListener {
             inputFirstTextField = "";
             roman1.setText("");
             roman2.setText("");
+            result.setText("");
+            roman1Int.setText("");
+            roman2Int.setText("");
+            romanResult.setText("");
             inputFirstTextField = "";
             inputSecondTextField = "";
         }
 
         if (buttonString.equals("=")) {
+            inputFirstTextField = roman1.getText();
+            inputSecondTextField = roman2.getText();
+
             int firstInt = Roman.convert_Roman_To_Int(inputFirstTextField);
             int secondInt = Roman.convert_Roman_To_Int(inputSecondTextField);
             int calculatedInt;
-
 
             roman1Int.setText("" + firstInt);
             roman2Int.setText("" + secondInt);
             calculatedInt = Roman.calc_Romans(firstInt, secondInt, oper);
             result.setText("" + calculatedInt);
             romanResult.setText(Roman.convert_Int_To_Roman(calculatedInt));
-
-
         }
 
     }
