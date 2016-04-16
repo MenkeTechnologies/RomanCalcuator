@@ -165,60 +165,60 @@ public class RomanCalculator extends JFrame implements ActionListener {
         if (firstTextFieldSelected) {
             if (buttonString.equals("I")) {
                 inputFirstTextField += "I";
-                roman1.setText(inputFirstTextField);
+                newRoman.displayRoman(roman1,inputFirstTextField);
             }
             if (buttonString.equals("V")) {
                 inputFirstTextField += "V";
-                roman1.setText(inputFirstTextField);
+                newRoman.displayRoman(roman1,inputFirstTextField);
             }
             if (buttonString.equals("X")) {
                 inputFirstTextField += "X";
-                roman1.setText(inputFirstTextField);
+                newRoman.displayRoman(roman1,inputFirstTextField);
             }
             if (buttonString.equals("L")) {
                 inputFirstTextField += "L";
-                roman1.setText(inputFirstTextField);
+                newRoman.displayRoman(roman1,inputFirstTextField);
             }
             if (buttonString.equals("C")) {
                 inputFirstTextField += "C";
-                roman1.setText(inputFirstTextField);
+                newRoman.displayRoman(roman1,inputFirstTextField);
             }
             if (buttonString.equals("D")) {
                 inputFirstTextField += "D";
-                roman1.setText(inputFirstTextField);
+                newRoman.displayRoman(roman1,inputFirstTextField);
             }
             if (buttonString.equals("M")) {
                 inputFirstTextField += "M";
-                roman1.setText(inputFirstTextField);
+                newRoman.displayRoman(roman1,inputFirstTextField);
             }
         } else if (secondTextFieldSelected) {
             if (buttonString.equals("I")) {
                 inputSecondTextField += "I";
-                roman2.setText(inputSecondTextField);
+                newRoman.displayRoman(roman2,inputSecondTextField);
             }
             if (buttonString.equals("V")) {
                 inputSecondTextField += "V";
-                roman2.setText(inputSecondTextField);
+                newRoman.displayRoman(roman2,inputSecondTextField);
             }
             if (buttonString.equals("X")) {
                 inputSecondTextField += "X";
-                roman2.setText(inputSecondTextField);
+                newRoman.displayRoman(roman2,inputSecondTextField);
             }
             if (buttonString.equals("L")) {
                 inputSecondTextField += "L";
-                roman2.setText(inputSecondTextField);
+                newRoman.displayRoman(roman2,inputSecondTextField);
             }
             if (buttonString.equals("C")) {
                 inputSecondTextField += "C";
-                roman2.setText(inputSecondTextField);
+                newRoman.displayRoman(roman2,inputSecondTextField);
             }
             if (buttonString.equals("D")) {
                 inputSecondTextField += "D";
-                roman2.setText(inputSecondTextField);
+                newRoman.displayRoman(roman2,inputSecondTextField);
             }
             if (buttonString.equals("M")) {
                 inputSecondTextField += "M";
-                roman2.setText(inputSecondTextField);
+                newRoman.displayRoman(roman2,inputSecondTextField);
             }
 
         }
